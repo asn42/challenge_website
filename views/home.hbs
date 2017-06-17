@@ -1,0 +1,6 @@
+{{^user}}
+    <p>Salut. <a href="/challenges/login">Identifie-toi</a> pour participer aux challenges&nbsp;!</p>
+{{/user}}
+{{#user}}
+    <p>Salut, {{ displayName }}. Résous <a href="/challenges/submit">les challenges</a> ou regarde <a href="/challenges/leaderboard">le leaderboard</a>.</p>
+{{/user}}

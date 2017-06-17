@@ -1,0 +1,29 @@
+<table>
+<thead>
+    <tr>
+        <th scope="col">Challenge name</th>
+        <th scope="col">Challenge</th>
+        <th scope="col">My points</th>
+        <th scope="col">Solved by</th>
+        <th scope="col">Flag</th>
+    </tr>
+</thead>
+<tbody>
+{{#challenges}}
+    <tr>
+        <td>{{name}}</td>
+        <td><a href="{{url}}" target="_blank">Click me!</a></td>
+        <td>{{amount}}</td>
+        <td>{{winners}}</td>
+        <td>
+            <form action="" method="post">
+                <label for="flag">Flag:</label>
+                <input name="flag" type="text" placeholder="The flag you found in the challenge" required>
+                <input name="challenge" type="hidden" value="{{id}}">
+                <input name="check" type="submit" value="Check">
+            </form>
+        </td>
+    </tr>
+{{/challenges}}
+</tbody>
+</table>

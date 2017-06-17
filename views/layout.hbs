@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ASN Survey</title>
+        <style type="text/css">
+          body {
+            padding: 50px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+          }
+          a {
+            color: #00B7FF;
+          }
+          table {
+            border-collapse: collapse;
+          }
+          td, th {
+            border: 1px solid #555;
+            text-align: center;
+            padding: 1em;
+          }
+        </style>
+    </head>
+    <body>
+        <h1>Challenges ASN NdH XV</h1>
+        <h4>Trouvez les flags et gagnez peut-être des places pour la Nuit du Hack avec l'Association Sans Nom&nbsp;!</h4>
+    {{^user}}
+        <p>
+            <a href="/challenges/">Home</a> |
+            <a href="/challenges/login">Log In</a>
+        </p>
+    {{/user}}
+    {{#user}}
+        <p>
+            <a href="/challenges/">Home</a> |
+            <a href="/challenges/submit">Challenges</a> |
+            <a href="/challenges/leaderboard">Leader board</a> |
+            <a href="/challenges/logout">Log Out</a>
+        </p>
+    {{/user}}
+    {{{ body }}}
+    </body>
+</html>

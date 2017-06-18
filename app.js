@@ -196,7 +196,8 @@ app.post(app_root + 'submit',
                       user ? user.time : 0,
                       now,
                     ])
-                  if (challenge.flag === req.body.flag) {
+                  console.log(challenge.flag, req.body.flag.replace(/\s/g, '').toLowerCase())
+                  if (challenge.flag === req.body.flag.replace(/\s/g, '').toLowerCase()) {
                     const winners = (challenge.winners === null) ? 0 : challenge.winners
                     // points = 3, 2, 1, 1, 1…
                     const points = (challenge.winners >= 2) ? 1 : 3 - challenge.winners

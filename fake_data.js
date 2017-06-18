@@ -49,36 +49,36 @@ function populateDatabase(db) {
   const challenges = [
     {
       id: 1,
-      name: 'sweet crypto',
-      url: 'https://asn.borntocode.in/challenges/files/sweetcrypto/',
+      name: 'tangrams',
+      url: 'https://example.com/chall/tangrams/',
       prize: 3,
-      flag: '!@#$%^&*()éèàô<>123456789asdfghjkl'
+      flag: 'flag1'
     },
     {
       id: 2,
       name: 'from paris',
-      url: 'https://asn.borntocode.in/challenges/files/fromparis/',
+      url: 'https://example.com/chall/fromparis/',
       prize: 3,
       flag: 'flag2'
     },
     {
       id: 3,
-      name: 'tangrams',
-      url: 'https://asn.borntocode.in/challenges/files/tangrams/',
+      name: 'sweet crypto',
+      url: 'https://example.com/chall//sweetcrypto/',
       prize: 3,
       flag: 'flag3'
     },
     {
       id: 4,
-      name: 'seringue',
-      url: 'https://example.com/chall/seringue/',
+      name: 'petit prince',
+      url: 'https://example.com/chall/petitprince/',
       prize: 3,
       flag: 'flag4'
     },
     {
       id: 5,
-      name: 'petit prince',
-      url: 'https://asn.borntocode.in/challenges/files/petitprince/',
+      name: 'seringue',
+      url: 'https://example.com/chall/seringue/',
       prize: 3,
       flag: 'flag5'
     },
@@ -87,7 +87,7 @@ function populateDatabase(db) {
       name: 'transversale',
       url: 'https://example.com/chall/transversale/',
       prize: 3,
-      flag: 'flag6'
+      flag: '!@#$%^&*-_.{}"\'`\\/<>[]()éèàô1234asdf'
     }
   ]
   const stmt2 = db.prepare('INSERT OR REPLACE INTO challenges(id, name, url, prize, flag) VALUES (?, ?, ?, ?, ?)');

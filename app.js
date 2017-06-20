@@ -187,16 +187,18 @@ app.post(app_root + 'submit',
                   // first time flagging and flag match
                 } else if (challenge && challenge.already_flagged === 0) {
                   // add or update user with last_attempt = now
+                  const userTime = user ? user.time : 0
+                  const userScore = user ? user.score : 0
                   db.run('INSERT OR REPLACE ' +
                     'INTO users (id, xlogin, score, time, last_attempt)' +
                     'VALUES (?, ?, ?, ?, ?);', [
                       parseInt(req.user.id, 10),
                       req.user.username,
-                      user ? user.score : 0,
-                      user ? user.time : 0,
+                      userScore,
+                      userTime,
                       now,
                     ])
-                  console.log(challenge.flag, req.body.flag.replace(/\s/g, '').toLowerCase())
+                  //console.log(challenge.flag, req.body.flag.replace(/\s/g, '').toLowerCase())
                   if (challenge.flag === req.body.flag.replace(/\s/g, '').toLowerCase()) {
                     const winners = (challenge.winners === null) ? 0 : challenge.winners
                     // points = 3, 2, 1, 1, 1…
@@ -209,10 +211,11 @@ app.post(app_root + 'submit',
                         parseInt(req.body.challenge, 10),
                         points
                       ])
-                    const userScore = user ? user.score : 0
                     db.run('UPDATE users ' +
-                      'SET score = ' + userScore + ' + ' + points + ' ' +
+                      'SET score = ?, time = ? ' +
                       'WHERE id = ?;', [
+                        userScore + points,
+                        userTime + now,
                         parseInt(req.user.id, 10)
                       ])
                     db.close()

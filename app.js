@@ -107,7 +107,7 @@ app.get(app_root + 'incorrect',
 app.get(app_root + 'submit',
   ensureLoggedIn(app_root + 'login'),
   function (req, res, next){
-    const db = new sqlite3.Database(path.join(__dirname, 'db.sqlite'))
+    const db = new sqlite3.Database(path.join(__dirname, 'database/db.sqlite'))
     // every challenge + points the user won (or null) + times they were flagged
     db.all(
       'SELECT ' +
@@ -145,7 +145,7 @@ app.post(app_root + 'submit',
   ensureLoggedIn(app_root + 'login'),
   function (req, res){
     const now = Date.now()
-    const db = new sqlite3.Database(path.join(__dirname, 'db.sqlite'))
+    const db = new sqlite3.Database(path.join(__dirname, 'database/db.sqlite'))
     // the user's score, cumulated time, and last flag submission time
     db.get('SELECT score, time, last_attempt FROM users WHERE id = ?;',
       parseInt(req.user.id, 10),
@@ -241,7 +241,7 @@ app.post(app_root + 'submit',
 app.get(app_root + 'leaderboard',
   ensureLoggedIn(app_root + 'login'),
   function (req, res, next){
-    const db = new sqlite3.Database(path.join(__dirname, 'db.sqlite'))
+    const db = new sqlite3.Database(path.join(__dirname, 'database/db.sqlite'))
     db.all('SELECT ' +
       'xlogin, score, time ' +
       'FROM users ' +

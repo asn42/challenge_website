@@ -6,7 +6,7 @@ const sqlite3 = require('sqlite3').verbose()
 
 env(__dirname + '/.env')
 
-const db = new sqlite3.Database(path.join(__dirname, 'db.sqlite'))
+const db = new sqlite3.Database(path.join(__dirname, 'database/db.sqlite'))
 
 function createDatabase(db) {
   console.log('Creating tables `users`, `challenges`, `points` and `submissions`')

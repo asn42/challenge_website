@@ -76,7 +76,7 @@ app.get(app_root + 'logout', function (req, res){
 })
 
 // Homepage
-app.get('/challenges',
+app.get(app_root,
   function (req, res) {
     res.render('home', { user: req.user })
   })

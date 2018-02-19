@@ -9,13 +9,13 @@
     "body-parser": "1.x",
     "connect-ensure-login": "0.1.x",
     "cookie-parser": "1.x",
-    "debug": "2.x",
+    "debug": "3.x",
     "express": "4.x",
     "express-session": "1.x",
     "hbs": "4.x",
     "morgan": "1.x",
-    "node-env-file": "^0.1.8",
-    "passport": "0.3.x",
+    "node-env-file": "0.1.x",
+    "passport": "0.4.x",
     "passport-42": "1.x",
     "sqlite3": "3.x"
   }
